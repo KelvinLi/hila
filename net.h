@@ -1,4 +1,9 @@
 #include <linux/if_tun.h>
 
-int
-hila_open_tun (void);
+struct hila_net *
+hila_net_open (void);
+
+void
+hila_net_close (struct hila_net *net);
+
+struct hila_net;
