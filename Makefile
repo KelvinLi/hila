@@ -1,14 +1,15 @@
 objects = main.o net.o
+binname = hila
 
 %.o : %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
-hila : $(objects)
-	$(CC) -o hila $(objects)
+$(binname) : $(objects)
+	$(CC) -o $(binname) $(objects)
 
 main.o : net.h
 net.o : net.h
 
 .PHONY : clean
 clean :
-	$(RM) hila $(objects)
+	$(RM) $(binname) $(objects)
