@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "net.h"
+#include "soundtest.h"
 
 int
 main (int argc, char **argv)
@@ -13,5 +14,7 @@ main (int argc, char **argv)
     }
     printf ("opened!\n");
     hila_net_close (net);
+
+    soundtest_play ();
     return 0;
 }

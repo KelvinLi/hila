@@ -1,6 +1,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <linux/if_tun.h>
 
 #include "net.h"
 

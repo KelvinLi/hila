@@ -1,6 +1,7 @@
-objects = main.o net.o
-binname = hila
-CFLAGS += -g -O2 -pipe \
+objects := main.o net.o soundtest.o
+binname := hila
+
+warning_opts := \
           -Wall -Wextra -pedantic -Wunused-parameter \
           -Werror=declaration-after-statement \
           -Werror=implicit-function-declaration \
@@ -10,6 +11,9 @@ CFLAGS += -g -O2 -pipe \
           -Waggregate-return -Wmissing-prototypes -Wmissing-declarations \
           -Wpadded -Wnormalized=nfkc
 
+lib_opts := -lasound
+CFLAGS += -g -O2 -pipe $(warning_opts) $(lib_opts)
+
 %.o : %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
@@ -18,6 +22,7 @@ $(binname) : $(objects)
 
 main.o : net.h
 net.o : net.h
+soundtest.o : soundtest.h
 
 .PHONY : clean
 clean :
