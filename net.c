@@ -18,7 +18,7 @@ hila_net_open (void)
 
     net->fd = open ("/dev/net/tun", O_RDWR);
     if (net->fd < 0) {
-        free(net);
+        free (net);
         return NULL;
     }
     return net;
@@ -29,6 +29,6 @@ hila_net_close (struct hila_net *net)
 {
     if (!net)
         return;
-    close(net->fd);
-    free(net);
+    close (net->fd);
+    free (net);
 }
