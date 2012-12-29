@@ -16,7 +16,11 @@ hila_main (void)
     printf ("tun opened!\n");
     hila_net_close (net);
 
-    soundtest_play ();
+    if (soundtest_play () < 0) {
+        printf ("could not play sound.\n");
+        return 1;
+    }
+    printf ("sound should have played.\n");
     return 0;
 }
 
