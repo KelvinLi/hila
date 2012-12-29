@@ -1,4 +1,4 @@
-objects := main.o net.o soundtest.o
+objects := main.o net.o soundinit.o soundtest.o
 binname := hila
 
 warning_opts := \
@@ -22,6 +22,7 @@ $(binname) : $(objects)
 
 main.o : net.h
 net.o : net.h
+soundinit.o : soundinit.h
 soundtest.o : soundtest.h
 
 .PHONY : clean

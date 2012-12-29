@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 #include "net.h"
+#include "soundinit.h"
 #include "soundtest.h"
 
-static void
+static int
 hila_main (void)
 {
     struct hila_net *net;
@@ -23,5 +24,5 @@ int
 main (int argc, char **argv)
 {
     sound_init ();
-    hila_main ();
+    return hila_main ();
 }
