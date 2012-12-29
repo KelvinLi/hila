@@ -1,0 +1,6 @@
+-Wall -Wextra -pedantic
+-Werror=declaration-after-statement -Werror=implicit-function-declaration
+-Wunused-parameter -Wstrict-prototypes -Wunused-but-set-variable
+-Wdouble-promotion -Wtrampolines -Wfloat-equal -Wunsafe-loop-optimizations
+-Wcast-align -Wwrite-strings -Wconversion -Wlogical-op -Waggregate-return
+-Wmissing-prototypes -Wmissing-declarations -Wpadded -Wnormalized=nfkc

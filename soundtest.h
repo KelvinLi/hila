@@ -1,1 +1,1 @@
-int  soundtest_play (void);
+int soundtest_play (void);
