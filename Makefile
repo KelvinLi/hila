@@ -1,4 +1,4 @@
-objects := main.o net.o soundinit.o soundtest.o recordtest.o
+objects := main.o net.o fft.o soundinit.o soundtest.o recordtest.o
 binname := hila
 
 lib_opts := -lasound
@@ -15,6 +15,7 @@ net.o : net.h
 soundinit.o : soundinit.h
 soundtest.o : soundtest.h
 recordtest.o : recordtest.h
+fft.o : fft.h
 
 .PHONY : clean
 clean :

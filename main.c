@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "net.h"
 #include "soundinit.h"
 #include "soundtest.h"
 #include "recordtest.h"
+#include "fft.h"
 
 #define RECORD_FRAMES_COUNT 100000
 
@@ -52,6 +54,31 @@ print_record_samples (void)
 }
 
 static int
+test_fft (void)
+{
+    double *wsave;
+    double data[] = {1.0, 2.0, 3.0, 4.0, 5.0};
+    double *ret;
+    int i;
+
+    wsave = fft_initialize (5);
+    if (!wsave)
+        return -1;
+    ret = fft_compute (5, data, wsave);
+    if (!ret)
+        goto fail;
+    for (i = 0; i < 6; i++) {
+        printf ("%.10g\n", ret[i]);
+    }
+    free (ret);
+    free (wsave);
+    return 0;
+fail:
+    free (wsave);
+    return -1;
+}
+
+static int
 hila_main (void)
 {
     int err;
@@ -59,6 +86,7 @@ hila_main (void)
     err = test_tun () < 0;
     err = play_sound () < 0 || err;
     err = print_record_samples () < 0 || err;
+    err = test_fft () < 0 || err;
     return -err;
 }
 
